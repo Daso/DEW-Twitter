@@ -1,0 +1,44 @@
+<h1>Listing tweets</h1>
+
+<table>
+  <tr>
+    <th>Message</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+<%= form_for(@tweet, :url => "user") do |f| %>
+  
+  <div class="field">
+    <%= f.label :user %><br />
+    <%= f.text_field :user %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Buscar"%>
+  </div>
+<% end %>
+  
+  
+ <%= form_for(@tweet) do |f| %>
+  
+  <div class="field">
+    <%= f.label :message %><br />
+    <%= f.text_field :message %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+ 
+  
+  
+<% @tweets.each do |tweet| %>
+  <tr>
+    <td><%= @message %></td>    
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Tweet', new_tweet_path %>
