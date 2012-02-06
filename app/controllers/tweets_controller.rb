@@ -37,9 +37,16 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id])
   end
   
-  def get_message
-   @tweet=Tweet.new
-   @message = @tweet.get_message_from(params[:user])
+   def status
+   @tweet=Tweet.new(params[:tweet])
+   respond_to do |format|
+      format.html 
+      format.json { head :no_content }
+    end
+  end
+  
+  def message
+   @tweet=Tweet.new(params[:tweet])
    respond_to do |format|
       format.html 
       format.json { head :no_content }

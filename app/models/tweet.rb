@@ -1,6 +1,11 @@
 class Tweet < ActiveRecord::Base
-  def get_message_from(user)    
-    return "sin user " if self.user.nil?
-    Twitter.user_timeline(user).first.text
+  def message    
+    return "sin user " if self.user.blank?
+    Twitter.user_timeline(self.user).first.text
+  end
+  
+  def status_update
+    return "sin status" if self.status.blank?
+    Twitter.status('27558893223').text
   end
 end

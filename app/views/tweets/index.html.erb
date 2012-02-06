@@ -18,7 +18,17 @@
   </div>
 <% end %>
   
+  <%= form_for(@tweet, :url => "status") do |f| %>
   
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Buscar Status"%>
+  </div>
+<% end %>
+
  <%= form_for(@tweet) do |f| %>
   
   <div class="field">
